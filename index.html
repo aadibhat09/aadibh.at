@@ -1,135 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Homepage</title>
+    <title>Aadi Bhat | Home</title>
+    <link rel="icon" type="image/x-icon" href="assets/images/png/logo.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Doto">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Urbanist">
 </head>
-<body>
-    <!-- Navbar -->
-    <div class="navbar">
-        <div class="brand">aadibh.at</div>
-        <div class="menu">Home</div>
-    </div>
 
-    <!-- Main Content -->
+<body>
+    <div class="navbar">
+        <div class="domain"><a href=".">aadibh.at</a></div>
+    </div>
     <div class="container">
-        <!-- Profile Picture -->
         <div class="profile-pic">
-            <img src="images/headshot.png" alt="Profile Picture">
+            <img src="assets/images/png/headshot.png" alt="Profile Picture">
         </div>
+        <br>
+        <hr class="animated-hr">
         <div class="name">
             <p>Aadi Bhat</p>
         </div>
-        
-        <!-- Social Icons -->
+        <hr class="animated-hr">
+        <br>
         <div class="social-icons">
-            <a href="mailto:aadibhat09@gmail.com" target="_blank"><img src="images/gmail.png" alt="Gmail Icon"></a>
-            <a href="https://github.com/aadibhat09" target="_blank"><img src="images/github.png" alt="Github Icon"></a>
-            <a href="https://www.youtube.com/channel/UChUkRHkVgOxcGowk95xj4TA" target="_blank"><img src="images/youtube.png" alt="YouTube Icon"></a>
+            <a href="mailto:aadibhat09@gmail.com" target="_blank"><img src="assets/images/svg/mail.svg"
+                    alt="Mail Icon"></a>
+            <a href="https://github.com/aadibhat09" target="_blank"><img src="assets/images/svg/github.svg"
+                    alt="Github Icon"></a>
+            <a href="https://discordid.netlify.app/?id=779065933029310474" target="_blank"><img
+                    src="assets/images/svg/discord.svg" alt="Discord Icon"></a>
+            <a href="https://www.youtube.com/channel/UChUkRHkVgOxcGowk95xj4TA" target="_blank"><img
+                    src="assets/images/svg/youtube.svg" alt="YouTube Icon"></a>
         </div>
     </div>
 </body>
 
 <style>
     * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-body {
-    font-family: Arial, sans-serif;
-    /* background: linear-gradient(135deg, #2a0d54, #8a2b87, #541084); */
-    background-image: url("images/wallpaper.png");
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-}
+    body {
+        background-image: url("assets/images/png/wallpaper.png");
+        background-size: auto;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
 
-.navbar {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    background-color: #111;
-    color: white;
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+    .navbar {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        background-color: #111;
+        color: white;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: solid;
+        border-color: white;
+    }
 
-.navbar .brand {
-    font-size: 1.5rem;
-    font-weight: bold;
-    font-family: "Doto";
-}
+    .navbar .domain a {
+        font-size: 1.5rem;
+        font-weight: bold;
+        font-family: "Doto";
+        color: white;
+        text-decoration: none;
+        user-select: none;
+    }
 
-.navbar .menu {
-    font-size: 1rem;
-    font-family: "Urbanist";
-}
+    .navbar .menu {
+        font-size: 1rem;
+        font-family: "Urbanist";
+    }
 
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
 
-.profile-pic {
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin-bottom: 1rem;
-    object-fit: cover;
-    border-style: solid;
-    border-color: white;
-    /* transition: transform 0.5s ease, box-shadow 0.5s ease; */
-}
+    .profile-pic {
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-bottom: 1rem;
+        object-fit: cover;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: slide 0.8s 1.2s forwards;
+    }
 
-.profile-pic, .social-icons img {
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
-}
-.profile-pic:hover, .social-icons img:hover{
-    transform: scale(1.1);
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
-}
+    .profile-pic img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 
-.profile-pic img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    
-}
+    .name {
+        font-family: "Urbanist";
+        font-weight: bold;
+        font-size: 100px;
+        user-select: none;
+    }
 
+    .animated-hr {
+        width: 0;
+        border: none;
+        height: 2px;
+        background-color: white;
+        animation: expandLine 1s forwards;
+        margin: 0.5rem 0;
+    }
 
-.name {
-    font-family: "Urbanist";
-    font-size:100px;
-}
+    @keyframes expandLine {
+        from {
+            width: 0;
+        }
 
-.social-icons {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
-}
+        to {
+            width: 100%;
+        }
+    }
 
-.social-icons img {
-    width: 50px;
-    height: 50px;
-    /* padding: 0.5rem; */
-    background-color: white;
-    border-radius: 10px;
-    border-style:solid;
-    border-color: white;
-}
+    .social-icons {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1rem;
+        opacity: 0;
+        transform: translateY(-20px);
+        animation: slide 0.8s 1.2s forwards;
+    }
 
+    @keyframes slide {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .social-icons img {
+        width: 50px;
+        height: 50px;
+        background-color: white;
+        border-radius: 23%;
+        border-color: white;
+        transition: transform 0.3s;
+    }
+
+    .social-icons img:hover {
+        transform: scale(1.1);
+    }
 </style>
+
 </html>
