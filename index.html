@@ -23,13 +23,13 @@
         <div class="profile-pic">
             <img src="assets/images/png/headshot.png" alt="Profile Picture">
         </div>
-        <br>
+        <!-- <br> -->
         <hr class="animated-hr">
         <div class="name">
             <p>Aadi Bhat</p>
         </div>
         <hr class="animated-hr">
-        <br>
+        <!-- <br> -->
         <div class="social-icons">
             <a href="mailto:aadi@aadibh.at" target="_blank"><img src="assets/images/svg/mail.svg"
                     alt="Mail Icon"></a>
@@ -101,11 +101,11 @@
         height: 250px;
         border-radius: 50%;
         overflow: hidden;
-        margin-bottom: 1rem;
+        margin-bottom: 2rem;
         object-fit: cover;
         opacity: 0;
-        transform: translateY(20px);
-        animation: slide 0.8s 1.2s forwards;
+        transform: translateY(40px);
+        animation: slide 0.8s 0.8s forwards;
     }
 
     .profile-pic img {
@@ -119,6 +119,16 @@
         font-weight: bold;
         font-size: 100px;
         user-select: none;
+        animation: expandName 0.8s;
+    }
+
+    @keyframes expandName {
+        from {
+            font-size: 0px;
+        }
+        to {
+            font-size: 100px;
+        }
     }
 
     .animated-hr {
@@ -126,7 +136,7 @@
         border: none;
         height: 2px;
         background-color: white;
-        animation: expandLine 1s forwards;
+        animation: expandLine 0.8s 0.8s forwards;
         margin: 0.5rem 0;
     }
 
@@ -143,10 +153,10 @@
     .social-icons {
         display: flex;
         gap: 1rem;
-        margin-top: 1rem;
+        margin-top: 2rem;
         opacity: 0;
-        transform: translateY(-20px);
-        animation: slide 0.8s 1.2s forwards;
+        transform: translateY(-40px);
+        animation: slide 0.8s 0.8s forwards;
     }
 
     @keyframes slide {
