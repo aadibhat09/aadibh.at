@@ -9,7 +9,7 @@
     <meta property="og:image" content="https://aadibh.at/assets/images/png/headshot.png" />
     <meta property="og:url" content="https://aadibh.at" />
     <meta property="og:type" content="website" />
-    <title>Aadi Bhat | Home</title>
+    <title>Aadi Bhat</title>
     <link rel="icon" type="image/x-icon" href="assets/images/png/logo.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Doto">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Urbanist">
@@ -23,22 +23,19 @@
         <div class="profile-pic">
             <img src="assets/images/png/headshot.png" alt="Profile Picture">
         </div>
-        <!-- <br> -->
         <hr class="animated-hr">
         <div class="name">
             <p>Aadi Bhat</p>
         </div>
         <hr class="animated-hr">
-        <!-- <br> -->
         <div class="social-icons">
-            <a href="mailto:aadi@aadibh.at" target="_blank"><img src="assets/images/svg/mail.svg"
-                    alt="Mail Icon"></a>
+            <a href="mailto:aadi@aadibh.at" target="_blank"><img src="assets/images/svg/mail.svg" alt="Mail Icon"></a>
             <a href="https://github.com/aadibhat09" target="_blank"><img src="assets/images/svg/github.svg"
                     alt="Github Icon"></a>
             <a href="https://discordid.netlify.app/?id=779065933029310474" target="_blank"><img
                     src="assets/images/svg/discord.svg" alt="Discord Icon"></a>
-            <a href="https://www.youtube.com/@Aadi_Bhat" target="_blank"><img
-                    src="assets/images/svg/youtube.svg" alt="YouTube Icon"></a>
+            <a href="https://www.youtube.com/@Aadi_Bhat" target="_blank"><img src="assets/images/svg/youtube.svg"
+                    alt="YouTube Icon"></a>
         </div>
     </div>
 </body>
@@ -73,6 +70,7 @@
         align-items: center;
         border-bottom: solid;
         border-color: white;
+        border-width: 2px;
     }
 
     .navbar .domain a {
@@ -100,6 +98,8 @@
         width: 250px;
         height: 250px;
         border-radius: 50%;
+        border-style: solid;
+        border-width: 2px;
         overflow: hidden;
         margin-bottom: 2rem;
         object-fit: cover;
@@ -122,15 +122,6 @@
         animation: expandName 0.8s;
     }
 
-    @keyframes expandName {
-        from {
-            font-size: 0px;
-        }
-        to {
-            font-size: 100px;
-        }
-    }
-
     .animated-hr {
         width: 0;
         border: none;
@@ -138,6 +129,40 @@
         background-color: white;
         animation: expandLine 0.8s 0.8s forwards;
         margin: 0.5rem 0;
+    }
+
+    .social-icons {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+        opacity: 0;
+        transform: translateY(-40px);
+        animation: slide 0.8s 0.8s forwards;
+    }
+
+    .social-icons img {
+        width: 50px;
+        height: 50px;
+        background-color: white;
+        border-radius: 23%;
+        border-style: solid;
+        border-width: 2px;
+        border-color: white;
+        transition: transform 0.3s;
+    }
+
+    .social-icons img:hover {
+        transform: scale(1.1);
+    }
+
+    @keyframes expandName {
+        from {
+            font-size: 0px;
+        }
+
+        to {
+            font-size: 100px;
+        }
     }
 
     @keyframes expandLine {
@@ -150,33 +175,11 @@
         }
     }
 
-    .social-icons {
-        display: flex;
-        gap: 1rem;
-        margin-top: 2rem;
-        opacity: 0;
-        transform: translateY(-40px);
-        animation: slide 0.8s 0.8s forwards;
-    }
-
     @keyframes slide {
         to {
             opacity: 1;
             transform: translateY(0);
         }
-    }
-
-    .social-icons img {
-        width: 50px;
-        height: 50px;
-        background-color: white;
-        border-radius: 23%;
-        border-color: white;
-        transition: transform 0.3s;
-    }
-
-    .social-icons img:hover {
-        transform: scale(1.1);
     }
 </style>
 
