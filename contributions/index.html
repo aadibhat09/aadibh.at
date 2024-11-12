@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="aadibh.at" />
+    <meta property="og:description" content="This is a summary of Aadi's GitHub contributions from yesterday." />
+    <meta property="og:image" content="https://aadibh.at/assets/images/png/logo.png" />
+    <meta property="og:url" content="https://aadibh.at/contributions" />
+    <meta property="og:type" content="website" />
+    <title>Aadi Bhat</title>
+    <link rel="icon" type="image/x-icon" href="assets/images/png/logo.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Doto">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Urbanist">
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="domain"><a href="../">aadibh.at</a></div>
+        <div class="verticalLine"></div>
+        <div class="contributionsPage"><a href=".">GitHub Contributions</a></div>
+    </div>
+    <div id="contributions" class="container">
+    </div>
+</body>
+
+<script>
+    async function fetchContributionsByDate(username, date) {
+        const url = `https://api.github.com/users/${username}/events`;
+
+        const contributionsContainer = document.getElementById("contributions");
+        const title = document.createElement("h1");
+        title.innerText = "Aadi's GitHub contributions from yesterday";
+
+        contributionsContainer.appendChild(title);
+        const breakElement = document.createElement("br");
+        contributionsContainer.appendChild(breakElement);
+
+        try {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error(`Error fetching data: ${response.status}`);
+            }
+
+            const events = await response.json();
+            const targetDate = new Date(date).toDateString();
+
+            const contributions = events.filter(event => {
+                const eventDate = new Date(event.created_at).toDateString();
+                return eventDate === targetDate;
+            });
+
+
+            if (contributions.length === 0) {
+                contributionsContainer.innerHTML = `<p>No contributions on ${targetDate}</p>`;
+                return;
+            }
+
+            contributions.forEach((event, index) => {
+                const card = document.createElement("div");
+                card.className = "card";
+                card.style.animationDelay = `${index * 0.15}s`; // Add delay for each card
+
+                const repoLink = document.createElement("a");
+                repoLink.href = `https://github.com/${event.repo.name}`;
+                repoLink.target = "_blank";
+                repoLink.textContent = event.repo.name;
+                repoLink.className = "repo-link";
+
+                if (event.type === "PushEvent") {
+                    const description = document.createElement("p");
+                    description.textContent = "Pushed to ";
+                    description.appendChild(repoLink);
+                    card.appendChild(description);
+
+                    const latestCommit = event.payload.commits.slice(-1)[0];
+                    if (latestCommit) {
+                        const commitMsg = document.createElement("p");
+                        commitMsg.className = "commit-message";
+                        commitMsg.textContent = `${latestCommit.message}`;
+                        card.appendChild(commitMsg);
+                    }
+                } else if (event.type === "PullRequestEvent") {
+                    const description = document.createElement("p");
+                    description.textContent = "Opened a pull request in ";
+                    description.appendChild(repoLink);
+                    card.appendChild(description);
+                } else if (event.type === "IssuesEvent") {
+                    const description = document.createElement("p");
+                    description.textContent = "Created an issue in ";
+                    description.appendChild(repoLink);
+                    card.appendChild(description);
+                } else {
+                    const description = document.createElement("p");
+                    description.textContent = "Activity in ";
+                    description.appendChild(repoLink);
+                    card.appendChild(description);
+                }
+
+                contributionsContainer.appendChild(card);
+            });
+            const breakElement = document.createElement("br");
+            contributionsContainer.appendChild(breakElement);
+        } catch (error) {
+            console.error("Error:", error);
+        }
+    }
+
+    function getYesterdayDate() {
+        const yesterday = new Date();
+        yesterday.setDate(yesterday.getDate() - 1);
+        return yesterday.toISOString().split('T')[0]; // YYYY-MM-DD format
+    }
+
+    const yesterdayDate = getYesterdayDate();
+
+    fetchContributionsByDate("aadibhat09", yesterdayDate);
+</script>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-image: url("../assets/images/png/wallpaper.png");
+        background-color: black;
+        background-size: cover;
+        background-repeat: no-repeat;
+        color: white;
+        font-family: "Urbanist", sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+
+    .navbar {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        background-color: #111;
+        color: white;
+        padding: 1rem 2rem;
+        display: flex;
+        align-items: center;
+        border-bottom: 2px solid white;
+    }
+
+    .navbar .domain a {
+        font-size: 1.5rem;
+        font-weight: bold;
+        font-family: "Doto";
+        color: white;
+        text-decoration: none;
+        user-select: none;
+        padding-right: 1rem;
+    }
+
+    .navbar .contributionsPage a {
+        font-size: 1rem;
+        color: white;
+        font-family: "Urbanist";
+        text-decoration: none;
+        user-select: none;
+        padding-left: 1rem;
+    }
+
+    .verticalLine {
+        border-left: 2px;
+        border-right: 0px;
+        border-top: 0px;
+        border-bottom: 0px;
+        border-style: dashed;
+        border-color: #333;
+        height: 2rem;
+    }
+
+    .title {
+        font-size: 100px;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 30rem;
+    }
+
+    .container h1 {
+        user-select: none;
+    }
+
+    .card {
+        background-color: #111;
+        color: #fff;
+        border: solid;
+        border-width: 2px;
+        border-color: white;
+        border-radius: 10px;
+        padding: 10px;
+        margin: 10px;
+        width: 500px;
+        box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.1);
+        font-family: "Urbanist", sans-serif;
+        transition: transform 0.3s;
+        opacity: 0;
+        /* Initial state */
+        animation: fadeIn 0.8s forwards;
+        /* Animation name and duration */
+    }
+
+    .card:hover {
+        transform: scale(1.05);
+    }
+
+    .card h4 {
+        margin: 0;
+        color: #61dafb;
+    }
+
+    .card p {
+        margin: 5px 0;
+    }
+
+    .commit-message {
+        font-size: 0.9rem;
+        color: #bbb;
+    }
+
+    .repo-link {
+        color: #937b8b;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    /* Define the fade-in keyframes */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            /* Start with opacity 0 */
+        }
+
+        to {
+            opacity: 1;
+            /* End with opacity 1 */
+        }
+    }
+</style>
+
+</html>
