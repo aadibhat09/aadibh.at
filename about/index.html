@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="aadibh.at" />
+    <meta property="og:description" content="This is a summary of Aadi's GitHub contributions from yesterday." />
+    <meta property="og:image" content="https://aadibh.at/assets/images/png/logo.png" />
+    <meta property="og:url" content="https://aadibh.at/contributions" />
+    <meta property="og:type" content="website" />
+    <title>Aadi Bhat</title>
+    <link rel="icon" type="image/x-icon" href="../assets/images/png/logo.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Doto">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Urbanist">
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="domain"><a href="../">aadibh.at</a></div>
+        <div class="vertical-line"></div>
+        <div class="about-me-page"><a href="/about">About Me</a></div>
+        <div class="vertical-line"></div>
+        <div class="contributions-page"><a href="/contributions">GitHub Contributions</a></div>
+    </div>
+    <div class="business-card">
+        <div class="profile">
+            <img src="../assets/images/png/headshot.png" alt="Profile Picture">
+        </div>
+        <div class="slideshow">
+            <div class="slide" id="slide-0">👋🏽 Hello! My name is Aadi.</div>
+            <div class="slide" id="slide-0">🌎 I'm a student in San Diego, CA.</div>
+            <div class="slide" id="slide-1">👨🏽‍💻 I'm interested in software development, robotics, and cyber
+                security!</div>
+            <div class="slide" id="slide-2">👾 I enjoy participating in hackathons with my friends.</div>
+            <div class="slide" id="slide-3">🥋 I work at my karate dojo, teaching younger students.</div>
+            <div class="slide" id="slide-4">🎹 I also like playing piano!</div>
+            <div class="slide" id="slide-5">🍄 Super Mario is pretty cool :)</div>
+            <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+            <button class="next" onclick="changeSlide(1)">&#10095;</button>
+        </div>
+    </div>
+</body>
+
+<script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.remove('active');
+            if (i === index) {
+                slide.classList.add('active');
+            }
+        });
+    }
+
+    function changeSlide(step) {
+        currentSlide = (currentSlide + step + slides.length) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    // Initialize the first slide
+    showSlide(currentSlide);
+
+</script>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-image: url("../assets/images/png/wallpaper.png");
+        background-color: black;
+        background-size: cover;
+        background-repeat: no-repeat;
+        color: white;
+        font-family: "Urbanist", sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+
+    .navbar {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        background-color: #111;
+        color: white;
+        padding: 1rem 2rem;
+        display: flex;
+        align-items: center;
+        border-bottom: 2px solid white;
+    }
+
+    .navbar .domain a {
+        font-size: 1.5rem;
+        font-weight: bold;
+        font-family: "Doto";
+        color: white;
+        text-decoration: none;
+        user-select: none;
+        padding-right: 1rem;
+    }
+
+    .navbar .contributions-page a,
+    .about-me-page a {
+        font-size: 1rem;
+        color: white;
+        font-family: "Urbanist";
+        text-decoration: none;
+        user-select: none;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .vertical-line {
+        border-left: 2px;
+        border-right: 0px;
+        border-top: 0px;
+        border-bottom: 0px;
+        border-style: dashed;
+        border-color: #333;
+        height: 2rem;
+    }
+
+    .business-card {
+        display: flex;
+        width: 50rem;
+        height: 25rem;
+        border-style: solid;
+        border-width: 2px;
+        border-color: white;
+        border-radius: 8px;
+        overflow: hidden;
+        background-color: #fff;
+        transition: transform 0.3s;
+    }
+
+    .business-card:hover {
+        transform: scale(1.05);
+    }
+
+    /* Animation for profile slide-in */
+    .profile {
+        width: 40%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #111;
+        animation: slideIn 0.8s ease-in-out forwards;
+    }
+
+    @keyframes slideIn {
+        from {
+            transform: translateX(-100%);
+        }
+
+        to {
+            transform: translateX(0);
+        }
+    }
+
+    .profile img {
+        width: 12rem;
+        height: 12rem;
+        border-radius: 50%;
+        border-style: solid;
+        border-width: 2px;
+        border-color: white;
+    }
+
+    .slideshow {
+        width: 60%;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .slide {
+        display: none;
+        font-size: 2rem;
+        color: #111;
+    }
+
+    .slide.active {
+        display: block;
+    }
+
+    .prev,
+    .next {
+        position: absolute;
+        top: 50%;
+        font-size: 18px;
+        color: #111;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        transform: translateY(-50%);
+        user-select: none;
+    }
+
+    .prev {
+        left: 10px;
+    }
+
+    .next {
+        right: 10px;
+    }
+</style>
+
+</html>
