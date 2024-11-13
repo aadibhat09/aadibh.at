@@ -28,16 +28,17 @@
             <img src="../assets/images/png/headshot.png" alt="Profile Picture">
         </div>
         <div class="slideshow">
-            <div class="slide" id="slide-0">👋🏽 Hello! My name is Aadi.</div>
-            <div class="slide" id="slide-0">🌎 I'm a student in San Diego, CA.</div>
-            <div class="slide" id="slide-1">👨🏽‍💻 I'm interested in software development, robotics, and cyber
+            <div class="slide" id="slide-0" onclick="changeSlide()">👋🏽 Hello! My name is Aadi.</div>
+            <div class="slide" id="slide-0" onclick="changeSlide()">🌎 I'm a student in San Diego, CA.</div>
+            <div class="slide" id="slide-1" onclick="changeSlide()">👨🏽‍💻 I'm interested in software development,
+                robotics, and cyber
                 security!</div>
-            <div class="slide" id="slide-2">👾 I enjoy participating in hackathons with my friends.</div>
-            <div class="slide" id="slide-3">🥋 I work at my karate dojo, teaching younger students.</div>
-            <div class="slide" id="slide-4">🎹 I also like playing piano!</div>
-            <div class="slide" id="slide-5">🍄 Super Mario is pretty cool :)</div>
-            <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
-            <button class="next" onclick="changeSlide(1)">&#10095;</button>
+            <div class="slide" id="slide-2" onclick="changeSlide()">👾 I enjoy participating in hackathons with my
+                friends.</div>
+            <div class="slide" id="slide-3" onclick="changeSlide()">🥋 I work at my karate dojo, teaching younger
+                students.</div>
+            <div class="slide" id="slide-4" onclick="changeSlide()">🎹 I also like playing piano!</div>
+            <div class="slide" id="slide-5" onclick="changeSlide()">🍄 Super Mario is pretty cool :)</div>
         </div>
     </div>
 </body>
@@ -55,8 +56,8 @@
         });
     }
 
-    function changeSlide(step) {
-        currentSlide = (currentSlide + step + slides.length) % slides.length;
+    function changeSlide() {
+        currentSlide = (currentSlide + 1 + slides.length) % slides.length;
         showSlide(currentSlide);
     }
 
@@ -143,12 +144,11 @@
     }
 
     .business-card:hover {
-        transform: scale(1.05);
+        transform: scale(1.015);
     }
 
-    /* Animation for profile slide-in */
+
     .profile {
-        width: 40%;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -158,11 +158,31 @@
 
     @keyframes slideIn {
         from {
-            transform: translateX(-100%);
+            width: 0;
         }
 
         to {
-            transform: translateX(0);
+            width: 40%;
+        }
+    }
+
+    @keyframes slideDown {
+        from {
+            transform: translateY(-165%);
+        }
+
+        to {
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes slideUp {
+        from {
+            transform: translateY(65%);
+        }
+
+        to {
+            transform: translateY(0);
         }
     }
 
@@ -173,6 +193,9 @@
         border-style: solid;
         border-width: 2px;
         border-color: white;
+        transform: translateY(165%);
+        animation: slideDown 0.8s 0.8s forwards;
+        user-select: none;
     }
 
     .slideshow {
@@ -184,38 +207,20 @@
         text-align: center;
         padding-left: 20px;
         padding-right: 20px;
+        transform: translateY(65%);
+        animation: slideUp 0.8s 0.8s forwards;
     }
 
     .slide {
         display: none;
         font-size: 2rem;
         color: #111;
+        cursor: pointer;
+        user-select: none;
     }
 
     .slide.active {
         display: block;
-    }
-
-    .prev,
-    .next {
-        position: absolute;
-        top: 50%;
-        font-size: 18px;
-        color: #111;
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 0;
-        transform: translateY(-50%);
-        user-select: none;
-    }
-
-    .prev {
-        left: 10px;
-    }
-
-    .next {
-        right: 10px;
     }
 </style>
 

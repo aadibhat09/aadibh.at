@@ -33,7 +33,7 @@
 
         const contributionsContainer = document.getElementById("contributions");
         const title = document.createElement("h1");
-        title.innerText = "Yesterday, Aadi...";
+        title.innerText = "Today, Aadi has...";
 
         contributionsContainer.appendChild(title);
         const breakElement = document.createElement("br");
@@ -101,6 +101,8 @@
                 }
 
                 contributionsContainer.appendChild(card);
+
+
             });
             const breakElement = document.createElement("br");
             contributionsContainer.appendChild(breakElement);
@@ -109,15 +111,16 @@
         }
     }
 
-    function getYesterdayDate() {
-        const yesterday = new Date();
-        yesterday.setDate(yesterday.getDate() - 1);
-        return yesterday.toISOString().split('T')[0]; // YYYY-MM-DD format
+    function getTodayDate() {
+        const today = new Date();
+        return today.toISOString().split('T')[0];
     }
 
-    const yesterdayDate = getYesterdayDate();
+    const todayDate = getTodayDate();
 
-    fetchContributionsByDate("aadibhat09", yesterdayDate);
+    fetchContributionsByDate("aadibhat09", todayDate);
+
+
 </script>
 
 <style>
@@ -137,8 +140,11 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
+        /* Keep the content at the top */
         height: 100vh;
+        overflow: hidden;
+        /* Prevent scrolling on the body */
     }
 
     .navbar {
@@ -163,7 +169,8 @@
         padding-right: 1rem;
     }
 
-    .navbar .contributions-page a, .about-me-page a{
+    .navbar .contributions-page a,
+    .about-me-page a {
         font-size: 1rem;
         color: white;
         font-family: "Urbanist";
@@ -183,15 +190,17 @@
         height: 2rem;
     }
 
-    .title {
-        font-size: 100px;
-    }
+
+
 
     .container {
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-top: 30rem;
+        margin-top: 4.1rem;
+        padding-top: 4rem;
+        width: 100%;
+        overflow-y: auto;
     }
 
     .card {
@@ -208,18 +217,11 @@
         font-family: "Urbanist", sans-serif;
         transition: transform 0.3s;
         opacity: 0;
-        /* Initial state */
         animation: fadeIn 0.8s forwards;
-        /* Animation name and duration */
     }
 
     .card:hover {
-        transform: scale(1.05);
-    }
-
-    .card h4 {
-        margin: 0;
-        color: #61dafb;
+        transform: scale(1.015);
     }
 
     .card p {
@@ -241,14 +243,13 @@
     @keyframes fadeIn {
         from {
             opacity: 0;
-            /* Start with opacity 0 */
         }
 
         to {
             opacity: 1;
-            /* End with opacity 1 */
         }
     }
 </style>
+
 
 </html>
