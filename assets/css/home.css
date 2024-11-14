@@ -1,0 +1,96 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.profile-pic {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border-style: solid;
+  border-width: 2px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  object-fit: cover;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: slide 0.8s 0.8s forwards;
+}
+
+.profile-pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+}
+
+.name {
+  font-family: "Urbanist";
+  font-weight: bold;
+  font-size: 100px;
+  user-select: none;
+  animation: expandName 0.8s;
+}
+
+.animated-hr {
+  width: 0;
+  border: none;
+  height: 2px;
+  background-color: white;
+  animation: expandLine 0.8s 0.8s forwards;
+  margin: 0.5rem 0;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  opacity: 0;
+  transform: translateY(-40px);
+  animation: slide 0.8s 0.8s forwards;
+}
+
+.social-icons img {
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  border-radius: 23%;
+  border-style: solid;
+  border-width: 2px;
+  border-color: white;
+  transition: transform 0.3s;
+  user-select: none;
+}
+
+.social-icons img:hover {
+  transform: scale(1.1);
+}
+
+@keyframes expandName {
+  from {
+    font-size: 0px;
+  }
+
+  to {
+    font-size: 100px;
+  }
+}
+
+@keyframes expandLine {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes slide {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
