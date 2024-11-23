@@ -64,7 +64,7 @@ async function fetchContributionsByDate(username, date) {
         card.appendChild(description);
       } else {
         const description = document.createElement("p");
-        description.textContent = "Activity in ";
+        description.textContent = "Contributed to ";
         description.appendChild(repoLink);
         card.appendChild(description);
       }
