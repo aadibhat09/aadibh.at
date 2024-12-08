@@ -5,8 +5,8 @@
 }
 
 body {
-  background-image: url("../images/png/wallpaper.png");
-  background-color: black;
+  background-image: url("../images/png/wallpaper-new.png");
+  /* background-color: #0e1f29; */
   background-size: cover;
   background-repeat: no-repeat;
   color: white;
@@ -46,7 +46,6 @@ body {
   color: white;
   font-family: "Urbanist";
   text-decoration: none;
-  user-select: none;
   padding-left: 1rem;
   padding-right: 1rem;
 }

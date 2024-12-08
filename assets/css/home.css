@@ -30,7 +30,6 @@
   font-family: "Urbanist";
   font-weight: bold;
   font-size: 100px;
-  user-select: none;
   animation: expandName 0.8s;
 }
 
@@ -61,7 +60,7 @@
 .social-icons img {
   width: 50px;
   height: 50px;
-  background-color: white;
+  background-color: #2e6384;
   border-radius: 23%;
   border-style: solid;
   border-width: 2px;
