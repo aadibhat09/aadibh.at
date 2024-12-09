@@ -5,8 +5,8 @@
 }
 
 body {
-  background-image: url("../images/png/wallpaper-new.png");
-  /* background-color: #0e1f29; */
+  background-image: url("../images/png/wallpaper-4.png");
+  transition: background-image 0.8s;
   background-size: cover;
   background-repeat: no-repeat;
   color: white;
