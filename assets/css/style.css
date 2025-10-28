@@ -6,6 +6,7 @@
 
 body {
   background-image: url("../images/png/wallpaper-blur.png");
+  background-color: #0b060d;
   transition: background-image 0.8s;
   background-size: cover;
   background-repeat: no-repeat;
