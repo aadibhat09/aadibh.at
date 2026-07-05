@@ -5,6 +5,7 @@ import headshotImg from '../assets/headshot.png'
 
 export default function Hero() {
   const titles = [
+    'a senior @ DNHS',
     'an Intern @ the NECTAR Lab at UCSC',
     'the Chief of Staff @ FRC Team Optix 3749',
     'a CyberPatriot competitor',
@@ -98,15 +99,6 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* Description / Summary */}
-        <motion.p
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.6 }}
-          className="text-white/60 text-sm md:text-base max-w-xl leading-relaxed font-normal"
-        >
-          High school senior @ DNHS interested in electrical and computer engineering.
-        </motion.p>
 
         {/* CTA Buttons */}
         <motion.div
