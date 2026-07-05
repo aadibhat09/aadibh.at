@@ -3,14 +3,44 @@ import { motion, AnimatePresence } from 'motion/react'
 
 export default function About() {
   const facts = [
-    "👋🏽 Hello! My name is Aadi.",
-    "🌎 I'm a student in San Diego, CA.",
-    "👨🏽‍💻 I'm into software development, robotics, and cybersecurity.",
-    "🤖 I build robots using WPILib, PhotonVision, and OpenCV.",
-    "🥋 I was a teacher at my karate dojo, mentoring younger students.",
-    "🎹 I also like playing piano!",
-    "🧑‍🏫 I enjoy designing curriculum and helping others learn to code.",
-    "🍄 Super Mario is pretty cool :)",
+    { 
+      text: "Hello! My name is Aadi.", 
+      img: "/src/assets/about/profile.png", 
+      isLeft: false,
+      imgClass: "absolute bottom-[-40px] md:bottom-[-60px] left-4 md:left-150 max-w-[180px] md:max-w-[350px] max-h-[110%] object-contain transition-transform duration-500 ease-out group-hover:rotate-2" 
+    },
+    { 
+      text: "I'm a student in San Diego, CA.", 
+      img: "/src/assets/about/skyline.png", 
+      isLeft: false,
+      isTopCenter: true,
+      textClass: "mx-auto text-center mt-4 md:mt-0 max-w-[90%] md:max-w-[80%]",
+      imgClass: "absolute bottom-[-8px] right-0 max-w-[280px] md:max-w-[1000px] max-h-[75%] md:max-h-[70%] object-cover object-bottom w-full transition-all duration-500 ease-out group-hover:bottom-0" 
+    },
+    { 
+      text: "I program robots for the First Robotics Competition.", 
+      img: "/src/assets/about/robot.png", 
+      isLeft: true,
+      imgClass: "absolute bottom-[-40px] md:bottom-[20px] left-4 md:left-12 max-w-[200px] md:max-w-[370px] max-h-[85%] object-contain transition-transform duration-500 ease-out group-hover:-rotate-2" 
+    },
+    { 
+      text: "I also like playing piano!", 
+      img: "/src/assets/about/music.png", 
+      isLeft: false,
+      imgClass: "absolute bottom-[-10px] md:bottom-[-20px] right-6 md:right-16 max-w-[180px] md:max-w-[240px] max-h-[80%] object-contain rotate-3 transition-transform duration-500 ease-out group-hover:rotate-1" 
+    },
+    { 
+      text: "I like to tinker with different operating systems like Fedora.", 
+      img: "/src/assets/about/fedora.png", 
+      isLeft: true,
+      imgClass: "absolute top-1/2 -translate-y-1/2 left-6 md:left-16 max-w-[220px] md:max-w-[300px] max-h-[90%] object-contain -rotate-1 rounded-md transition-transform duration-500 ease-out group-hover:rotate-1" 
+    },
+    { 
+      text: "Super Mario is pretty cool :)", 
+      img: "/src/assets/about/nsmbw.png", 
+      isLeft: false,
+      imgClass: "absolute bottom-[-10px] md:bottom-[-20px] right-6 md:right-16 max-w-[180px] md:max-w-[240px] max-h-[80%] object-contain -rotate-3 transition-transform duration-500 ease-out group-hover:-rotate-1" 
+    },
   ]
 
   const [index, setIndex] = useState(0)
@@ -18,6 +48,8 @@ export default function About() {
   const nextFact = () => {
     setIndex((prev) => (prev + 1) % facts.length)
   }
+
+  const currentFact = facts[index]
 
   return (
     <section id="about" className="relative z-10 py-24 px-6 max-w-5xl mx-auto w-full">
@@ -40,23 +72,41 @@ export default function About() {
 
         {/* Sliding Fact Deck */}
         <div className="flex flex-col items-center gap-6">
-          <button
+          <motion.button
             onClick={nextFact}
-            className="liquid-glass rounded-3xl p-10 md:p-16 w-full flex items-center justify-center text-center cursor-pointer select-none min-h-[220px] md:min-h-[260px]"
+            whileHover={{ y: -6 }}
+            transition={{ type: "spring", stiffness: 400, damping: 25 }}
+            className="group liquid-glass rounded-3xl w-full cursor-pointer select-none h-[340px] md:h-[280px] relative overflow-hidden text-left"
           >
             <AnimatePresence mode="wait">
-              <motion.span
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, x: 40 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -40 }}
                 transition={{ duration: 0.35, ease: 'easeOut' }}
-                className="text-xl md:text-3xl font-medium text-white leading-relaxed"
+                className={`relative w-full h-full p-8 md:p-12 md:px-16 flex ${
+                  currentFact.isTopCenter ? 'items-start' : 'items-center'
+                }`}
               >
-                {facts[index]}
-              </motion.span>
+                {/* Text Block */}
+                <span className={`text-xl md:text-3xl font-medium text-white leading-relaxed z-10 ${
+                  currentFact.textClass 
+                    ? currentFact.textClass 
+                    : `max-w-[85%] md:max-w-[55%] ${currentFact.isLeft ? 'ml-auto text-right md:text-left' : 'mr-auto'}`
+                }`}>
+                  {currentFact.text}
+                </span>
+
+                {/* Fixed Positioned Image */}
+                <img
+                  src={currentFact.img}
+                  alt="About visual"
+                  className={currentFact.imgClass}
+                />
+              </motion.div>
             </AnimatePresence>
-          </button>
+          </motion.button>
 
           {/* Dot Indicators */}
           <div className="flex items-center gap-2">
@@ -70,7 +120,6 @@ export default function About() {
             ))}
           </div>
         </div>
-
       </motion.div>
     </section>
   )
