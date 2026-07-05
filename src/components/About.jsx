@@ -1,17 +1,24 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 
+import profileImg from '../assets/about/profile.png'
+import skylineImg from '../assets/about/skyline.png'
+import robotImg from '../assets/about/robot.png'
+import musicImg from '../assets/about/music.png'
+import fedoraImg from '../assets/about/fedora.png'
+import nsmbwImg from '../assets/about/nsmbw.png'
+
 export default function About() {
   const facts = [
     { 
       text: "Hello! My name is Aadi.", 
-      img: "/src/assets/about/profile.png", 
+      img: profileImg, 
       isLeft: false,
       imgClass: "absolute bottom-[-40px] md:bottom-[-60px] left-4 md:left-150 max-w-[180px] md:max-w-[350px] max-h-[110%] object-contain transition-transform duration-500 ease-out group-hover:rotate-2" 
     },
     { 
       text: "I'm a student in San Diego, CA.", 
-      img: "/src/assets/about/skyline.png", 
+      img: skylineImg, 
       isLeft: false,
       isTopCenter: true,
       textClass: "mx-auto text-center mt-4 md:mt-0 max-w-[90%] md:max-w-[80%]",
@@ -19,25 +26,25 @@ export default function About() {
     },
     { 
       text: "I program robots for the First Robotics Competition.", 
-      img: "/src/assets/about/robot.png", 
+      img: robotImg, 
       isLeft: true,
       imgClass: "absolute bottom-[-40px] md:bottom-[20px] left-4 md:left-12 max-w-[200px] md:max-w-[370px] max-h-[85%] object-contain transition-transform duration-500 ease-out group-hover:-rotate-2" 
     },
     { 
       text: "I also like playing piano!", 
-      img: "/src/assets/about/music.png", 
+      img: musicImg, 
       isLeft: false,
       imgClass: "absolute bottom-[-10px] md:bottom-[-20px] right-6 md:right-16 max-w-[180px] md:max-w-[240px] max-h-[80%] object-contain rotate-3 transition-transform duration-500 ease-out group-hover:rotate-1" 
     },
     { 
       text: "I like to tinker with different operating systems like Fedora.", 
-      img: "/src/assets/about/fedora.png", 
+      img: fedoraImg, 
       isLeft: true,
       imgClass: "absolute top-1/2 -translate-y-1/2 left-6 md:left-16 max-w-[220px] md:max-w-[300px] max-h-[90%] object-contain -rotate-1 rounded-md transition-transform duration-500 ease-out group-hover:rotate-1" 
     },
     { 
       text: "Super Mario is pretty cool :)", 
-      img: "/src/assets/about/nsmbw.png", 
+      img: nsmbwImg, 
       isLeft: false,
       imgClass: "absolute bottom-[-10px] md:bottom-[-20px] right-6 md:right-16 max-w-[180px] md:max-w-[240px] max-h-[80%] object-contain -rotate-3 transition-transform duration-500 ease-out group-hover:-rotate-1" 
     },
