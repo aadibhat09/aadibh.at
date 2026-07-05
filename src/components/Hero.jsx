@@ -5,12 +5,11 @@ import headshotImg from '../assets/headshot.png'
 
 export default function Hero() {
   const titles = [
-    'Software Lead @ FRC Team Optix 3749',
-    'Student Researcher @ UCSC SIP',
-    'Team Captain @ CyberAegis',
-    'Software Lead @ DelNorte-SD iGEM',
-    'Robotics & Coding Teacher @ SDSC',
-    'First Degree Black Belt in Karate'
+    'an Intern @ the NECTAR Lab at UCSC',
+    'the Chief of Staff @ FRC Team Optix 3749',
+    'a CyberPatriot competitor',
+    'the Software Lead of my iGEM team',
+    'a passionate engineer',
   ]
 
   const [titleIndex, setTitleIndex] = useState(0)
@@ -91,7 +90,7 @@ export default function Hero() {
             className="flex items-center justify-center min-h-[36px] mt-[-4px] md:mt-[-2px]"
           >
             <p className="text-base md:text-xl font-medium text-white/80 tracking-tight font-sans">
-              <span className="text-white/40 font-normal">I am a </span>
+              <span className="text-white/40 font-normal">I am </span>
               <span className="text-white font-semibold inline-block border-r-2 border-white/80 pr-1 animate-pulse select-all">
                 {currentText}
               </span>
@@ -106,7 +105,7 @@ export default function Hero() {
           transition={{ delay: 0.5, duration: 0.6 }}
           className="text-white/60 text-sm md:text-base max-w-xl leading-relaxed font-normal"
         >
-          Rising senior at Del Norte High School interested in all kinds of engineering.
+          High school senior @ DNHS interested in electrical and computer engineering.
         </motion.p>
 
         {/* CTA Buttons */}
