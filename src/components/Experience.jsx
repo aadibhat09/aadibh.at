@@ -172,7 +172,7 @@ export default function Experience() {
         <div className="flex flex-col gap-8 overflow-x-hidden">
           <div className="flex flex-col gap-2">
             <span className="text-[10px] md:text-[11px] font-medium tracking-[0.2em] uppercase text-white/50">
-              Professional Timeline
+              Things I Do
             </span>
             <h2 style={{ fontFamily: "'Instrument Serif', serif" }} className="text-4xl md:text-5xl font-medium text-white">
               Activities & Experience
@@ -233,7 +233,7 @@ export default function Experience() {
         <div className="flex flex-col gap-8 overflow-x-hidden">
           <div className="flex flex-col gap-2">
             <span className="text-[10px] md:text-[11px] font-medium tracking-[0.2em] uppercase text-white/50">
-              Recognition & Achievements
+              Things my Teams and I've Won
             </span>
             <h2 style={{ fontFamily: "'Instrument Serif', serif" }} className="text-4xl md:text-5xl font-medium text-white">
               Honors & Awards

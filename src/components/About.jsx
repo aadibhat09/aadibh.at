@@ -70,7 +70,7 @@ export default function About() {
         {/* Section Header */}
         <div className="flex flex-col gap-2">
           <span className="text-[10px] md:text-[11px] font-medium tracking-[0.2em] uppercase text-white/50">
-            Background & Credentials
+            Fun Facts
           </span>
           <h2 style={{ fontFamily: "'Instrument Serif', serif" }} className="text-4xl md:text-5xl font-medium text-white">
             About Me

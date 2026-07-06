@@ -48,7 +48,7 @@ export default function Contact() {
         {/* Header */}
         <div className="flex flex-col gap-2 text-center items-center">
           <span className="text-[10px] md:text-[11px] font-medium tracking-[0.2em] uppercase text-white/50">
-            Let's Connect
+            More Stuff
           </span>
           <h2 style={{ fontFamily: "'Instrument Serif', serif" }} className="text-4xl md:text-5xl font-medium text-white">
             Get In Touch
