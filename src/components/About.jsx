@@ -4,49 +4,58 @@ import { motion, AnimatePresence } from 'motion/react'
 import profileImg from '../assets/about/profile.png'
 import skylineImg from '../assets/about/skyline.png'
 import robotImg from '../assets/about/robot.png'
-import musicImg from '../assets/about/music.png'
+import fuelImg from '../assets/about/fuel.png'
+import pianoImg from '../assets/about/piano.png'
+import pianoWithSheetImg from '../assets/about/piano-sheet.png'
 import fedoraImg from '../assets/about/fedora.png'
 import nsmbwImg from '../assets/about/nsmbw.png'
+import smg2Img from '../assets/about/smg2.png'
 
 export default function About() {
   const facts = [
-    { 
-      text: "Hello! My name is Aadi.", 
-      img: profileImg, 
+    {
+      text: "Hello! My name is Aadi.",
+      img: profileImg,
       isLeft: false,
-      imgClass: "absolute bottom-[-40px] md:bottom-[-60px] left-4 md:left-150 max-w-[180px] md:max-w-[350px] max-h-[110%] object-contain transition-transform duration-500 ease-out group-hover:rotate-2" 
+      imgClass: "absolute bottom-[-40px] md:bottom-[-60px] left-4 md:left-150 max-w-[180px] md:max-w-[350px] max-h-[110%] object-contain transition-transform duration-500 ease-out group-hover:rotate-2"
     },
-    { 
-      text: "I'm a student in San Diego, CA.", 
-      img: skylineImg, 
+    {
+      text: "I'm a student in San Diego, CA.",
+      img: skylineImg,
       isLeft: false,
       isTopCenter: true,
       textClass: "mx-auto text-center mt-4 md:mt-0 max-w-[90%] md:max-w-[80%]",
-      imgClass: "absolute bottom-[-8px] right-0 max-w-[280px] md:max-w-[1000px] max-h-[75%] md:max-h-[70%] object-cover object-bottom w-full transition-all duration-500 ease-out group-hover:bottom-0" 
+      imgClass: "absolute bottom-[-8px] right-0 max-w-[280px] md:max-w-[1000px] max-h-[75%] md:max-h-[70%] object-cover object-bottom w-full transition-all duration-500 ease-out group-hover:bottom-0"
     },
-    { 
-      text: "I program robots for the First Robotics Competition.", 
-      img: robotImg, 
+    {
+      text: "I program robots for the First Robotics Competition.",
+      img: robotImg,
+      img2: fuelImg,
       isLeft: true,
-      imgClass: "absolute bottom-[-40px] md:bottom-[20px] left-4 md:left-12 max-w-[200px] md:max-w-[370px] max-h-[85%] object-contain transition-transform duration-500 ease-out group-hover:-rotate-2" 
+      imgClass: "absolute bottom-[-40px] md:bottom-[20px] left-4 md:left-12 max-w-[200px] md:max-w-[370px] max-h-[85%] object-contain rotate-3 transition-transform duration-500 ease-out group-hover:-rotate-2",
+      img2Class: "absolute bottom-[80px] md:bottom-[106px] left-32 md:left-50 max-w-[40px] md:max-w-[147px] object-contain z-20 scale-[0.25] translate-x-0 translate-y-0 transition-transform duration-500 ease-out group-hover:scale-100 group-hover:translate-x-20 md:group-hover:translate-x-50 group-hover:-translate-y-10 md:group-hover:-translate-y-20"
     },
-    { 
-      text: "I also like playing piano!", 
-      img: musicImg, 
+    {
+      text: "I also like playing piano!",
+      img: pianoImg,
+      img2: pianoWithSheetImg,
       isLeft: false,
-      imgClass: "absolute bottom-[-10px] md:bottom-[-20px] right-6 md:right-16 max-w-[180px] md:max-w-[240px] max-h-[80%] object-contain rotate-3 transition-transform duration-500 ease-out group-hover:rotate-1" 
+      imgClass: "absolute top-1/2 -translate-y-1/2 right-16 md:right-36 max-w-[200px] md:max-w-[260px] max-h-[85%] object-contain z-20 opacity-100 transition-all duration-500 ease-out group-hover:opacity-0 group-hover:translate-x-2",
+      img2Class: "absolute top-1/2 -translate-y-1/2 right-16 md:right-36 max-w-[200px] md:max-w-[260px] max-h-[85%] object-contain z-10 opacity-0 transition-all duration-500 ease-out group-hover:opacity-100 group-hover:translate-x-2"
     },
-    { 
-      text: "I like to tinker with different operating systems like Fedora.", 
-      img: fedoraImg, 
+    {
+      text: "I tinker with different operating systems like Fedora.",
+      img: fedoraImg,
       isLeft: true,
-      imgClass: "absolute top-1/2 -translate-y-1/2 left-6 md:left-16 max-w-[220px] md:max-w-[300px] max-h-[90%] object-contain -rotate-1 rounded-md transition-transform duration-500 ease-out group-hover:rotate-1" 
+      imgClass: "absolute top-1/2 -translate-y-1/2 left-6 md:left-16 max-w-[220px] md:max-w-[300px] max-h-[90%] object-contain -rotate-1 rounded-md transition-transform duration-500 ease-out group-hover:rotate-1"
     },
-    { 
-      text: "Super Mario is pretty cool :)", 
-      img: nsmbwImg, 
+    {
+      text: "Super Mario is pretty cool :)",
+      img: nsmbwImg,
+      img2: smg2Img,
       isLeft: false,
-      imgClass: "absolute bottom-[-10px] md:bottom-[-20px] right-6 md:right-16 max-w-[180px] md:max-w-[240px] max-h-[80%] object-contain -rotate-3 transition-transform duration-500 ease-out group-hover:-rotate-1" 
+      imgClass: "absolute top-1/2 -translate-y-1/2 right-16 md:right-36 max-w-[180px] md:max-w-[240px] max-h-[80%] object-contain origin-bottom rotate-0 z-20 transition-transform duration-500 ease-out group-hover:-rotate-6 group-hover:-translate-x-6",
+      img2Class: "absolute top-1/2 -translate-y-1/2 right-16 md:right-36 max-w-[180px] md:max-w-[240px] max-h-[80%] object-contain origin-bottom rotate-0 z-10 transition-transform duration-500 ease-out group-hover:rotate-6 group-hover:translate-x-6"
     },
   ]
 
@@ -92,18 +101,25 @@ export default function About() {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -40 }}
                 transition={{ duration: 0.35, ease: 'easeOut' }}
-                className={`relative w-full h-full p-8 md:p-12 md:px-16 flex ${
-                  currentFact.isTopCenter ? 'items-start' : 'items-center'
-                }`}
+                className={`relative w-full h-full p-8 md:p-12 md:px-16 flex ${currentFact.isTopCenter ? 'items-start' : 'items-center'
+                  }`}
               >
                 {/* Text Block */}
-                <span className={`text-xl md:text-3xl font-medium text-white leading-relaxed z-10 ${
-                  currentFact.textClass 
-                    ? currentFact.textClass 
-                    : `max-w-[85%] md:max-w-[55%] ${currentFact.isLeft ? 'ml-auto text-right md:text-left' : 'mr-auto'}`
-                }`}>
+                <span className={`text-xl md:text-3xl font-medium text-white leading-relaxed z-10 ${currentFact.textClass
+                  ? currentFact.textClass
+                  : `max-w-[85%] md:max-w-[55%] ${currentFact.isLeft ? 'ml-auto text-right md:text-left' : 'mr-auto'}`
+                  }`}>
                   {currentFact.text}
                 </span>
+
+                {/* Secondary Background Image (e.g. piano behind sheet music) */}
+                {currentFact.img2 && (
+                  <img
+                    src={currentFact.img2}
+                    alt="About visual background"
+                    className={currentFact.img2Class}
+                  />
+                )}
 
                 {/* Fixed Positioned Image */}
                 <img
@@ -120,9 +136,8 @@ export default function About() {
             {facts.map((_, idx) => (
               <span
                 key={idx}
-                className={`h-1.5 rounded-full transition-all duration-300 ${
-                  idx === index ? 'w-6 bg-white/80' : 'w-1.5 bg-white/20'
-                }`}
+                className={`h-1.5 rounded-full transition-all duration-300 ${idx === index ? 'w-6 bg-white/80' : 'w-1.5 bg-white/20'
+                  }`}
               />
             ))}
           </div>
