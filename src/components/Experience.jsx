@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion } from 'motion/react'
-import { Award, Shield, Cpu, BookOpen, Smile, Swords, Dna, UserCog, RefreshCw } from 'lucide-react'
+import { Award, Shield, Cpu, BookOpen, Smile, Swords, Dna, UserCog, RefreshCw, Zap } from 'lucide-react'
 
 export default function Experience() {
   const experienceViewportRef = useRef(null)
@@ -23,6 +23,16 @@ export default function Experience() {
         'Built and executed a structured onboarding program for 20+ new software members, designating projects and subsystem tasks.',
         'Developed modular robot code in Java (WPILib), integrating motor controllers, vision systems, and autonomous pathing.',
         'Contributed 150+ outreach hours for the club and conducted STEM bootcamps with community organizations.'
+      ]
+    },
+    {
+      role: 'ECE Intern',
+      company: 'NECTAR Lab @ UC Santa Cruz',
+      period: 'June 2026 — Present',
+      location: 'Santa Cruz, CA',
+      icon: Zap,
+      points: [
+        'Updates soon...'
       ]
     },
     {
@@ -322,9 +332,7 @@ export default function Experience() {
                     transition={{ duration: 0.3 }}
                   >
                     <div className="flex items-start justify-between gap-4 pointer-events-none">
-                      {/* Fixed: changed to items-start to handle long/wrapping text nicely */}
                       <div className="flex items-start gap-3 min-w-0 flex-1">
-                        {/* Fixed: added flex-shrink-0 to keep the icon container completely square */}
                         <div className="w-10 h-10 rounded-xl bg-white/[0.04] flex items-center justify-center border border-white/10 flex-shrink-0">
                           <IconComp className="w-5 h-5 text-white/80" />
                         </div>
