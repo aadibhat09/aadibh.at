@@ -212,6 +212,7 @@ export default function Experience() {
                     >
                       <div className="grid" style={{ gridTemplateAreas: '"stack"' }}>
                         <motion.div
+                          initial={false}
                           animate={{ rotateY: teamOptixFlipped ? -180 : 0 }}
                           whileHover={{ y: -4 }}
                           transition={{
@@ -265,6 +266,7 @@ export default function Experience() {
                           </ul>
                         </motion.div>
                         <motion.div
+                          initial={false}
                           animate={{ rotateY: teamOptixFlipped ? 0 : 180 }}
                           whileHover={{ y: -4 }}
                           transition={{
