@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion } from 'motion/react'
-import { Award, Shield, Cpu, BookOpen, Smile, Swords, Dna } from 'lucide-react'
+import { Award, Shield, Cpu, BookOpen, Smile, Swords, Dna, UserCog, RefreshCw } from 'lucide-react'
 
 export default function Experience() {
   const experienceViewportRef = useRef(null)
@@ -9,12 +9,13 @@ export default function Experience() {
   const awardsTrackRef = useRef(null)
   const [experienceBounds, setExperienceBounds] = useState({ left: 0, right: 0 })
   const [awardsBounds, setAwardsBounds] = useState({ left: 0, right: 0 })
-  
+  const [teamOptixFlipped, setTeamOptixFlipped] = useState(false)
+
   const experiences = [
     {
       role: 'Software Lead',
       company: 'FRC Team Optix 3749',
-      period: 'Sept 2023 — Present',
+      period: 'Sept 2023 — June 2026',
       location: 'San Diego, CA',
       icon: Cpu,
       points: [
@@ -190,6 +191,129 @@ export default function Experience() {
             >
               {experiences.map((exp, idx) => {
                 const IconComp = exp.icon
+                const isTeamOptixLead = exp.company === 'FRC Team Optix 3749' && exp.role === 'Software Lead'
+
+                if (isTeamOptixLead) {
+                  return (
+                    <div
+                      key={idx}
+                      className="flex-shrink-0 w-[85vw] sm:w-[400px] md:w-[430px]"
+                      style={{ perspective: 1400 }}
+                    >
+                      <div className="grid" style={{ gridTemplateAreas: '"stack"' }}>
+                        <motion.div
+                          animate={{ rotateY: teamOptixFlipped ? -180 : 0 }}
+                          whileHover={{ y: -4 }}
+                          transition={{
+                            rotateY: { duration: 0.6, ease: [0.4, 0, 0.2, 1] },
+                            y: { duration: 0.3 }
+                          }}
+                          style={{
+                            gridArea: 'stack',
+                            backfaceVisibility: 'hidden',
+                            WebkitBackfaceVisibility: 'hidden',
+                            pointerEvents: teamOptixFlipped ? 'none' : 'auto'
+                          }}
+                          className="liquid-glass rounded-3xl p-6 flex flex-col gap-4 border border-white/5 select-none relative"
+                        >
+                          <motion.button
+                            type="button"
+                            onClick={() => setTeamOptixFlipped(true)}
+                            aria-label="Flip card to see Software Lead role"
+                            whileHover="spin"
+                            className="absolute top-4 right-4 z-10 w-7 h-7 rounded-full bg-white/[0.06] hover:bg-white/[0.14] border border-white/10 flex items-center justify-center transition-colors cursor-pointer"
+                          >
+                            <motion.span
+                              className="flex items-center justify-center"
+                              variants={{ spin: { rotate: 180 } }}
+                              transition={{ duration: 0.4, ease: 'easeInOut' }}
+                            >
+                              <RefreshCw className="w-3.5 h-3.5 text-white/70" />
+                            </motion.span>
+                          </motion.button>
+
+                          <div className="flex items-start justify-between gap-4 pointer-events-none pr-8">
+                            <div className="flex items-start gap-3 min-w-0 flex-1">
+                              <div className="w-10 h-10 rounded-xl bg-white/[0.04] flex items-center justify-center border border-white/10 flex-shrink-0">
+                                <UserCog className="w-5 h-5 text-white/80" />
+                              </div>
+                              <div className="min-w-0 flex-1">
+                                <h3 className="font-semibold text-white text-base leading-snug break-words">Chief of Staff</h3>
+                                <p className="text-white/60 text-xs mt-0.5 break-words">{exp.company}</p>
+                              </div>
+                            </div>
+                            <div className="flex flex-col items-end text-right shrink-0">
+                              <span className="text-xs font-medium text-white/80">June 2026 — Present</span>
+                              <span className="text-[10px] text-white/40">{exp.location}</span>
+                            </div>
+                          </div>
+
+                          <ul className="flex flex-col gap-2 mt-2 border-t border-white/5 pt-4 pointer-events-none">
+                            <li className="text-xs text-white/70 leading-relaxed list-disc list-inside pl-1 marker:text-white/30">
+                              Updates soon...
+                            </li>
+                          </ul>
+                        </motion.div>
+                        <motion.div
+                          animate={{ rotateY: teamOptixFlipped ? 0 : 180 }}
+                          whileHover={{ y: -4 }}
+                          transition={{
+                            rotateY: { duration: 0.6, ease: [0.4, 0, 0.2, 1] },
+                            y: { duration: 0.3 }
+                          }}
+                          style={{
+                            gridArea: 'stack',
+                            backfaceVisibility: 'hidden',
+                            WebkitBackfaceVisibility: 'hidden',
+                            pointerEvents: teamOptixFlipped ? 'auto' : 'none'
+                          }}
+                          className="liquid-glass rounded-3xl p-6 flex flex-col gap-4 border border-white/5 select-none relative"
+                        >
+                          <motion.button
+                            type="button"
+                            onClick={() => setTeamOptixFlipped(false)}
+                            aria-label="Flip card back to Chief of Staff role"
+                            whileHover="spin"
+                            className="absolute top-4 right-4 z-10 w-7 h-7 rounded-full bg-white/[0.06] hover:bg-white/[0.14] border border-white/10 flex items-center justify-center transition-colors cursor-pointer"
+                          >
+                            <motion.span
+                              className="flex items-center justify-center"
+                              variants={{ spin: { rotate: 180 } }}
+                              transition={{ duration: 0.8, ease: 'easeInOut' }}
+                            >
+                              <RefreshCw className="w-3.5 h-3.5 text-white/70" />
+                            </motion.span>
+                          </motion.button>
+
+                          <div className="flex items-start justify-between gap-4 pointer-events-none pr-8">
+                            <div className="flex items-start gap-3 min-w-0 flex-1">
+                              <div className="w-10 h-10 rounded-xl bg-white/[0.04] flex items-center justify-center border border-white/10 flex-shrink-0">
+                                <IconComp className="w-5 h-5 text-white/80" />
+                              </div>
+                              <div className="min-w-0 flex-1">
+                                <h3 className="font-semibold text-white text-base leading-snug break-words">{exp.role}</h3>
+                                <p className="text-white/60 text-xs mt-0.5 break-words">{exp.company}</p>
+                              </div>
+                            </div>
+                            <div className="flex flex-col items-end text-right shrink-0">
+                              <span className="text-xs font-medium text-white/80">{exp.period}</span>
+                              <span className="text-[10px] text-white/40">{exp.location}</span>
+                            </div>
+                          </div>
+
+                          <ul className="flex flex-col gap-2 mt-2 border-t border-white/5 pt-4 pointer-events-none">
+                            {exp.points.map((pt, pIdx) => (
+                              <li key={pIdx} className="text-xs text-white/70 leading-relaxed list-disc list-inside pl-1 marker:text-white/30">
+                                {pt}
+                              </li>
+                            ))}
+                          </ul>
+                        </motion.div>
+                      </div>
+                    </div>
+                  )
+                }
+
                 return (
                   <motion.div
                     key={idx}
